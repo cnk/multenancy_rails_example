@@ -5,8 +5,16 @@ feature "Accounts" do
     visit subscribem.root_path
     click_link "Account Sign Up"
     fill_in "Name", :with => "Test"
+    fill_in "Email", :with => "test@example.com"
+    fill_in "Password", :with => "password", :exact => true
+    fill_in "Password confirmation", :with => "password", :exact => true
+
+
     click_button "Create Account"
     success_msg = "Your account has been successfully created."
     expect(page).to have_content(success_msg)
+
+    owner_msg = "Signed in as test@example.com"
+    expect(page).to have_content(owner_msg)
   end
 end
