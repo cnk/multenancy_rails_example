@@ -1,3 +1,7 @@
 = Subscribem
 
-This project rocks and uses MIT-LICENSE.
+Example code for the book "Multitenancy with Rails" by Ryan Bigg
+https://leanpub.com/multi-tenancy-rails
+
+The book used Ruby 2.1.2 and Rails 4.1.1. I am using Ruby 2.2.0 and
+Rails 4.2.0. So far I haven't needed to make any changes due to different versions.
