@@ -1,23 +1,31 @@
 <h2>Sign Up</h2>
 <%= form_for(@account) do |account| %>
-<p>
-  <%= account.label :name %><br>
-  <%= account.text_field :name %>
-</p>
-<%= account.fields_for :owner do |owner| %>
-<p>
-  <%= owner.label :email %><br>
-  <%= owner.email_field :email %>
-</p>
-<p>
-  <%= owner.label :password %><br>
-  <%= owner.password_field :password %>
-</p>
-<p>
-  <%= owner.label :password_confirmation %><br>
-  <%= owner.password_field :password_confirmation %>
-</p>
-<% end %>
 
-<%= account.submit %>
+  <%= account.error_messages %>
+
+  <p>
+    <%= account.label :name %><br>
+    <%= account.text_field :name %>
+  </p>
+  <p>
+    <%= account.label :subdomain %><br>
+    <%= account.text_field :subdomain %>
+  </p>
+
+  <%= account.fields_for :owner do |owner| %>
+    <p>
+      <%= owner.label :email %><br>
+      <%= owner.email_field :email %>
+    </p>
+    <p>
+      <%= owner.label :password %><br>
+      <%= owner.password_field :password %>
+    </p>
+    <p>
+      <%= owner.label :password_confirmation %><br>
+      <%= owner.password_field :password_confirmation %>
+    </p>
+  <% end %>
+
+  <%= account.submit %>
 <% end %>
