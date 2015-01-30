@@ -24,5 +24,11 @@ module Subscribem
       env["warden"].authenticated?(:user)
     end
     helper_method :user_signed_in?
+
+    def authenticate_user!
+      unless user_signed_in?
+        redirect_to "/sign_in", notice: "Please sign in."
+      end
+    end
   end
 end
