@@ -10,7 +10,9 @@ module Subscribem
       if env["warden"].authenticate(:scope => :user)
         redirect_to root_path, notice: "You are now signed in."
       else
-        render :new, error: "Invalid email or password"
+        @user = User.new(email: params[:user][:email])
+        flash[:error] = "Invalid email or password."
+        render :new
       end
     end
   end
