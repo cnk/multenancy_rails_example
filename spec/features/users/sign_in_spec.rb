@@ -2,8 +2,6 @@ require 'rails_helper'
 
 feature "User sign in" do
   extend SubdomainHelpers
-  # Not sure why I need to explicitly tell FactoryGirl to register the definitions in spec/factories
-  FactoryGirl.find_definitions
 
   let!(:account) { FactoryGirl.create(:account) }
   let(:subdomain_root_url) { "http://#{account.subdomain}.example.com/" }

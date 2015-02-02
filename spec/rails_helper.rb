@@ -6,6 +6,8 @@ require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'capybara/rspec'
 require 'factory_girl'
+# Not sure why I need to explicitly tell FactoryGirl to register the definitions in spec/factories
+FactoryGirl.find_definitions
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are

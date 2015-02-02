@@ -10,8 +10,7 @@ module Subscribem
     def create
       @account = Subscribem::Account.create_with_owner(account_params)
       if @account.valid?
-        env["warden"].set_user(@account.owner, :scope => :user)
-        env["warden"].set_user(@account, :scope => :account)
+        force_authentication!(@account, @account.owner)
         redirect_to subscribem.root_url(:subdomain => @account.subdomain), notice: "Your account has been successfully created."
       else
         flash[:error] = "Sorry, your account could not be created."
